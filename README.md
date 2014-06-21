@@ -3,6 +3,8 @@
 Code to run the mental rotation experiment from Hamrick & Griffiths
 (2014).
 
+![Mental rotation experiment](preview.png)
+
 ## Methods
 
 This is a behavioral experiment based on classic mental rotation
