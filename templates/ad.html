@@ -5,9 +5,57 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>CompCog Psychology Experiment</title>
 
-    <link rel="stylesheet" type="text/css" href="static/css/general.css" />
+    <style>
+      body {
+          padding: 0;
+          margin: 0;
+          font-family: Georgia, serif;
+          font-size: 1em;
+          line-height: 1.25em;
+      }
 
-    <script src="static/js/utils.js" type="text/javascript"></script>
+      p {
+          margin-top: .625em;
+          margin-bottom: .625em;
+      }
+
+      h1 {
+          font-weight: bold;
+          font-size: 1.25em;
+          margin-top: .625em;
+          margin-bottom: .625em;
+      }
+
+      ul { margin: 1em 0; }      
+
+      img.logo { height: 6.25em; }
+
+      button, .next {
+          background-color: white;
+          box-shadow: 1px 1px 3px;
+          border: 1px solid black;
+          margin: 1%;
+          padding: 1% 2% 1% 2%;
+          font-family: Georgia, serif; 
+          font-size: 1em;
+      }
+
+      button:active, .next:active {
+          background-color: #c9c9c9;
+          box-shadow: 0px 0px 3px;
+      }
+
+      span.warn {
+          font-style: italic;
+      }
+    </style>
+
+    <script>
+      function openwindow() {
+          popup = window.open('{{ server_location }}/consent?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}','Popup','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=no,width='+screen.availWidth+',height='+screen.availHeight+'');
+          popup.onunload = function() { location.reload(true) }
+      }
+    </script>
   </head>
 
   <body>
@@ -23,12 +71,12 @@
 	</p>
       </div>
       <div class="continue">
-	<button type="button" onclick="open_window('{{ hitid }}', '{{ assignmentid }}', '{{ workerid }}')">Ok, I understand, I'm ready to start.</button>
+	<button type="button" onclick="openwindow()">Ok, I understand, I'm ready to start.</button>
       </div>
 
       {% else %}
-      <img class="logo" src="static/images/UCSeal122x122.gif" alt="University of California, Berkeley" />
-      <img class="logo" src="static/images/Bayes-500h.jpg" alt="Computational Cognitive Science Group" />
+      <img class="logo" src="{{ server_location }}/static/images/UCSeal122x122.gif" alt="University of California, Berkeley" />
+      <img class="logo" src="{{ server_location }}/static/images/Bayes-500h.jpg" alt="Computational Cognitive Science Group" />
 
       <h1>Call for participants</h1>
       <div>
