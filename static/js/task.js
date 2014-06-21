@@ -12,7 +12,7 @@
 var $c = new Config(condition, counterbalance);
 
 // Initalize psiturk object
-var psiTurk = new PsiTurk();
+var psiTurk = new PsiTurk(uniqueId, adServerLoc);
 
 // Preload the HTML template pages that we need for the experiment
 psiTurk.preloadPages($c.pages);
@@ -82,8 +82,8 @@ var Instructions = function() {
         data.update(STATE.as_data());
         data.update(this.examples[STATE.index]);
         data.update({response: "", response_time: rt});
-        psiTurk.recordTrialData(data.to_array());
-        debug(data.to_array());
+        psiTurk.recordTrialData(data);
+        debug(data);
 
         // Go to the next page of instructions, or complete these
         // instructions if there are no more pages
@@ -297,8 +297,8 @@ var TestPhase = function() {
         });
 
         // Create the record we want to save
-        psiTurk.recordTrialData(data.to_array());
-        debug(data.to_array());
+        psiTurk.recordTrialData(data);
+        debug(data);
 
         if (STATE.trial_phase == TRIAL.stim) {
             this.response = response;
@@ -331,21 +331,6 @@ var TestPhase = function() {
         // phase and show the relevant instructions
         if (STATE.experiment_phase >= EXPERIMENT.length) {
 
-            // Send them to the debriefing form, but delay a bit, so
-            // they know what's happening
-            var debrief = function() {
-                setTimeout(function () {
-                    window.location = "/debrief?uniqueId=" + psiTurk.taskdata.id;
-                }, 2000);
-            };
-
-            // Prompt them to resubmit the HIT, because it failed the first time
-            var prompt_resubmit = function() {
-                $("#resubmit_slide").click(resubmit);
-                $(".slide").hide();
-                $("#submit_error_slide").fadeIn($c.fade);
-            };
-
             // Show a page saying that the HIT is resubmitting, and
             // show the error page again if it times out or error
             var resubmit = function() {
@@ -362,11 +347,17 @@ var TestPhase = function() {
                 });
             };
 
+            // Prompt them to resubmit the HIT, because it failed the first time
+            var prompt_resubmit = function() {
+                $("#resubmit_slide").click(resubmit);
+                $(".slide").hide();
+                $("#submit_error_slide").fadeIn($c.fade);
+            };
+
             // Render a page saying it's submitting
             psiTurk.showPage("submit.html")
-            psiTurk.teardownTask();
             psiTurk.saveData({
-                success: debrief, 
+                success: psiTurk.completeHIT, 
                 error: prompt_resubmit
             });
 
@@ -402,12 +393,6 @@ var TestPhase = function() {
 $(document).ready(function() { 
     // Load the HTML for the trials
     psiTurk.showPage("trial.html");
-
-    // Record field names for the data that we'll be collecting
-    var data = new DataRecord();
-    var fields = JSON.stringify(data.fields);
-    psiTurk.recordUnstructuredData("fields", fields);
-    debug(fields);
 
     // Record various unstructured data
     psiTurk.recordUnstructuredData("condition", condition);
