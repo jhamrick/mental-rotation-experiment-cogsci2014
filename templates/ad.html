@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CompCog Psychology Experiment</title>
+
+    <link rel="stylesheet" type="text/css" href="static/css/general.css" />
+
+    <script src="static/js/utils.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div style="margin: 1em;">
+      {% if assignmentid != "ASSIGNMENT_ID_NOT_AVAILABLE" %}
+      <h1>Thank you for accepting this HIT!</h1>
+      <div>
+	<p>By clicking the following button, you will be taken to the
+	experiment, including complete instructions and an informed
+	consent agreement.</p>
+	<p>
+	  Please disable pop-up blockers before continuing.
+	</p>
+      </div>
+      <div class="continue">
+	<button type="button" onclick="open_window('{{ hitid }}', '{{ assignmentid }}', '{{ workerid }}')">Ok, I understand, I'm ready to start.</button>
+      </div>
+
+      {% else %}
+      <img class="logo" src="static/images/UCSeal122x122.gif" alt="University of California, Berkeley" />
+      <img class="logo" src="static/images/Bayes-500h.jpg" alt="Computational Cognitive Science Group" />
+
+      <h1>Call for participants</h1>
+      <div>
+	<p>The Computational Cognitive Science Group at the University
+	of California, Berkeley (UC Berkeley) is looking for online
+	participants for a brief experiment on how people reason about
+	objects.</p>
+
+	<p>In this experiment you will be shown pairs of images, and
+	you will judge whether they depict the same object. You will
+	complete 210 trials, which typically takes between 15 and 20
+	minutes.</p>
+
+	<p>The requirements are:</p>
+
+	<ul>
+	  <li>You are at least 18 years old,</li>
+	  <li>You have normal vision or wear corrective lenses, and</li>
+	  <li>You are a fluent English speaker.</li>
+	</ul>
+
+	<p>Note: the experiment will only work in recent browsers, and
+	may have difficulty loading on slower connections.</p>
+
+	<p>This task can only be completed once. If you have already
+	completed this task before the system will not allow you to
+	run again. If this looks familiar please release the hit so
+	someone else can participate.</p>
+
+	Otherwise, please click the "Accept Hit" button on the Amazon
+	site above to begin the task.
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

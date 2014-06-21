@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Consent Form</title>
+
+    <script src="static/js/utils.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="static/css/general.css" />
+  </head>
+
+  <body>
+    <div class="slide">
+      <img class="logo" src="static/images/UCSeal122x122.gif" alt="University of California, Berkeley" />
+      <img class="logo" src="static/images/Bayes-500h.jpg" alt="Computational Cognitive Science Group" />
+      <h1>UC Berkeley Computational Cognitive Science Group</h1>
+      <div class="blue">
+        <div id="consent">
+          <p>This research is being conducted by Prof. Thomas
+          Griffiths, a faculty member at the University of California
+          at Berkeley. Prof. Griffiths' lab investigates computational
+          models of human cognition. The study typically takes between
+          15 and 20 minutes.</p>
+
+          <p>If you agree to take part in the research, you will fill
+          out a brief on-line questionnaire. The questionnaires will
+          involve reading information, viewing images, and answering
+          questions. All of the information that we obtain during the
+          research will be kept confidential, and not associated with
+          your name in any way.</p>
+
+          <p>Your participation in this research is voluntary. You are
+          free to refuse to take part, and you may stop taking part at
+          any time. You are free to discontinue participation in this
+          study at any time with no penalty. If there is any question
+          in the questionnaire that makes you uncomfortable or that
+          you do not want to answer, it is your right to refrain from
+          answering that question.</p>
+          
+          <p>If you have any questions about the research, do not
+          hesitate to
+          contact <a href="mailto:jhamrick@berkeley.edu">Jessica
+          Hamrick</a>. If you have any questions about your rights or
+          treatment as a participant in this research project, please
+          contact UC Berkeley's Committee for Protection of Human
+          Subjects at (510) 642-7461
+          or <a href="mailto:subjects@berkeley.edu">subjects@berkeley.edu</a>.</p>
+        </div>
+
+        <p>By selecting the "Continue" button below, I
+        acknowledge that:</p>
+        <ul>
+          <li>I am 18 or older,</li>
+	  <li>I have normal vision or wear corrective lenses,</li>
+	  <li>I am a fluent English speaker,</li>
+          <li>I have read this consent form, and</li>
+          <li>I agree to take part in the research.</li>
+        </ul>
+      </div>
+
+      <div class="continue">
+        Do you understand and consent to the terms of the experiment
+        explained above?
+
+        <button type="button" id="IAgree" onclick="window.location='/exp?hitId={{ hitid }}&assignmentId={{ assignmentid }}&workerId={{ workerid }}'" >I Agree</button>
+        <button type="button" id="NoThanks" onclick="window.close();">No Thanks</button>
+      </div>
+
+    </div>
+  </body>
+</html>

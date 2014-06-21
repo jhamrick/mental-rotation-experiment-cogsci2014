@@ -1,0 +1,145 @@
+<div class="slide" id="instructions-training-1">
+  <h1>Instructions</h1>
+  <div class="blue">
+    <p>In this experiment, you will make judgments about simple,
+    2-dimensional objects. There will be 210 trials total, split into
+    three blocks as follows:</p>
+
+    <ol>
+      <li>10 practice trials</li>
+      <li>100 experiment trials</li>
+      <li>100 experiment trials</li>
+    </ol>
+  </div>
+
+  <div class="continue">
+    <button type="button" class="next">Continue</button>
+  </div>
+</div>
+
+<div class="slide" id="instructions-training-2">
+  <h1>Instructions (continued)</h1>
+  <div class="blue">
+    <p>On each trial, you will see two images. Sometimes, they show
+    the <b>same</b> object:</p>
+
+    <div class="canvas-container">
+      <canvas id="example1_left_image" class="stim_canvas" width="300" height="300"></canvas>
+      <canvas id="example1_right_image" class="stim_canvas" width="300" height="300"></canvas>
+    </div>
+
+    <p>Other times, the images show <b>flipped</b> objects:</p>
+
+    <div class="canvas-container">
+      <canvas id="example2_left_image" class="stim_canvas" width="300" height="300"></canvas>
+      <canvas id="example2_right_image" class="stim_canvas" width="300" height="300"></canvas>
+    </div>
+
+    <p></p>
+  </div>
+
+  <div class="continue">
+    <button type="button" class="next">Continue</button>
+  </div>
+</div>
+
+<div class="slide" id="instructions-training-3">
+  <h1>Instructions (continued)</h1>
+  <div class="blue">
+    <p>The task is to determine whether the two images show the
+    <b>same</b> object or <b>flipped</b> objects.</p>
+
+    <p>Each trial will have the following structure:</p>
+
+    <ol>
+      <li>Press <b>b</b> to begin.</li>
+      <li>Look at the cross that appears and wait for the stimulus.</li>
+      <li>The stimulus will automatically appear.</li>
+      <li>Press a key (<b>s</b> for same, or <b>f</b> for flipped) to indicate your choice.</li>
+    </ol>
+
+    <p>You should try to answer as quickly as possible, while still
+    being accurate.</p>
+
+    <p>When you click "Start" below, the 10 practice trials will
+    begin.</p>
+  </div>
+
+  <div class="continue">
+    <button type="button" class="next">Start</button>
+  </div>
+</div>
+
+<div class="slide" id="instructions-experiment-1">
+  <h1>Instructions</h1>
+  <div class="blue">
+    <p>Great job! Now, you will do the first 100 experiment
+    trials.</p>
+
+    <p>Remember, you should try to answer as quickly as possible,
+    while still being accurate.</p>
+
+    <p>Please try to answer <span class="warn">at least 85%</span> of
+    the trials correctly.</p>
+  </div>
+
+  <div class="continue">
+    <button type="button" class="next">Start</button>
+  </div>
+</div>
+
+<div class="slide" id="instructions-experiment-2">
+  <h1>Instructions</h1>
+  <div class="blue">
+    <p>You're halfway done! Now for the last 100 experiment trials.</p>
+
+    <p>Remember to try to answer <span class="warn">at least
+    85%</span> of the trials correctly.</p>
+  </div>
+
+  <div class="continue">
+    <button type="button" class="next">Start</button>
+  </div>
+</div>
+
+<div class="slide" id="trial">
+  <div id="progress">
+    <div id="progress-text">Progress</div>
+    <div id="indicator-container">
+      <div id="indicator-outer">
+        <div id="indicator-stage"></div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+  </div>
+  
+  <div id="phase-container" class="blue">
+    <div id="prestim" class="phase">
+      <p id="prestim-area" class="canvas-container">When you are ready to begin, press <b>b</b>.</p>
+    </div>
+
+    <div id="fixation" class="phase">
+      <div class="canvas-container">
+	<canvas id="fixation_canvas" width="600" height="300"></canvas>
+      </div>
+    </div>
+
+    <div id="stim" class="phase">
+      <div class="canvas-container">
+	<canvas id="left_image" class="stim_canvas" width="300" height="300"></canvas>
+	<canvas id="right_image" class="stim_canvas" width="300" height="300"></canvas>
+	<div class="spacer"></div>
+      </div>
+    </div>
+
+    <div id="feedback" class="phase">
+      <div id="feedback-area" class="canvas-container"></div>
+    </div>
+  </div>
+
+  <div id="score"></div>
+
+  <div id="choices">
+    <p>Press <b>s</b> for "same"</p><p>Press <b>f</b> for "flipped"</p>
+  </div>
+</div>
